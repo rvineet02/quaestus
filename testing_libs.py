@@ -17,7 +17,6 @@ from yfinance.utils import auto_adjust
 
 
 # Functions from talib_functions.py for testing 
-from talib_functions import TalibRSI
 
 
 
@@ -28,18 +27,19 @@ def getData(stockName):
         st = yf.Ticker(stockName)
         history = st.history(period="max", interval="1d")
     except Exception:
-        print("Exception: " + Exception)
+        print("Exception: ")
 
     # print(history.columns)
 
-    return history
+    print(history.columns)
+    # return history 
 
 
 # useData gets complete dataframe from getData and only keeps close price and volume
 
 def useData(history):
     try:
-        df = history[["Close", "Volume"]]
+        df = history[["Adj Close", "Volume"]]
     except Exception:
         print("Could not get data: " + Exception)
 
@@ -65,9 +65,35 @@ def RSI(df):
 
     return rsi
 
+def movingAverages(df, period):
+    if period == 9:
+        print("Entred here")
+        df["SMA_9"] = df.iloc[:,1].rolling(window=9).mean()    
+    elif period == 20:
+        df["SMA_20"] = df.iloc[:,1].rolling(window=20).mean()
+    elif period == 50:
+        df["SMA_50"] = df.iloc[:,1].rolling(window=50).mean()
+    elif period == 200:
+        df["SMA_200"] =df.iloc[:,1].rolling(window=200).mean()
 
+    return df
+
+
+
+def secondSource(stock):
+    df = yf.download(stock)
+    # print(df[["Close", "Adj Close"]])
+
+    return df 
 
 
 if __name__ == "__main__":
-    df = useData(getData("MSFT"))
+    # df = useData(getData("MSFT"))
+
+    # print(movingAverages(df=useData(getData("MSFT")), period=9))
+    # getData("MSFT")
+    secondSource("MSFT")
+
+
+
 
