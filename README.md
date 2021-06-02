@@ -10,7 +10,7 @@ Section: Moving Average
 - MA (50)
 - MA (200)
 - 9 and 20 Crossover 
-- 20 and 50 Crossover 
+- 20 and 50 Crossover
 - 50 and 200 Crossover 
 
 Section: Momentum 
