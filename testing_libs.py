@@ -71,4 +71,3 @@ def RSI(df):
 if __name__ == "__main__":
     df = useData(getData("MSFT"))
 
-    compareRSI()
