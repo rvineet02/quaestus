@@ -4,18 +4,19 @@ import numpy as np
 import pandas as pd 
 
 # Pandas dataframe settiongs
-# Set all values to five decimal places instead of scientific notation
 pd.set_option('display.float_format', lambda x: '%.5f' % x)
 # to reset that option: 
 # pd.reset_option('display.float_format')
+# Set all values to five decimal places instead of scientific notation
 
 
 def SimpleMovingAverages(df):
     
-    closing_prices = df["Adj Close"]
-
-    moving_average = talib.MA(closing_prices, timeperiod=10, matype=0)
-    df["MA_10"] = pd.Series(moving_average, index=df.index)
+    closing_prices = df["Adj Close"]    
+    periods = [10, 50, 100, 200]
+    for period in periods:
+        moving_average = talib.MA(closing_prices, timeperiod=period, matype=0)
+        df["MA_"+str(period)] = pd.Series(moving_average, index=df.index)
 
     print(df)
 
