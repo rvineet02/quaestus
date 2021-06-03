@@ -5,25 +5,25 @@
 
 ##### Stats
 Section: Moving Average
-- MA(9)
-- MA (20)
-- MA (50)
-- MA (200)
-- 9 and 20 Crossover 
-- 20 and 50 Crossover
-- 50 and 200 Crossover 
+-x MA(9) 
+-x MA (20)
+-x MA (50)
+-x MA (200)
+-x 10 and 50 Crossover 
+-x 50 and 100 Crossover
+-x 100 and 200 Crossover 
 
 Section: Momentum 
-- RSI
-- CCI 
-- Williams %R
-- STOCH RSI
+-x RSI
+-x CCI 
+-x Williams %R
+-x STOCH RSI
 - Stochastics 
 
 Section: Trade 
-- MACD
-- ATR
-- ADX
+-x MACD
+-x ATR
+-x ADX
 - Supertrend 
 
 Section: Volume 
