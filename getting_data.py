@@ -11,7 +11,6 @@ def getData(ticker):
         stock = yf.download(ticker)
     except Exception:
         print("Could not getData()")
-    print(stock.columns)
     return stock
 
 
