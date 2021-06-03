@@ -46,12 +46,10 @@ def SimpleMovingAveragesCrossovers(df):
     
     # print(df.loc[df["Position_100_200"] == 1])
     
-
-
     print(df)
 
 
 if __name__ == "__main__":
-    # SimpleMovingAverages(df=gd.getData("TSLA"))
-    SimpleMovingAveragesCrossovers(df=SimpleMovingAverages(df=gd.getData("TSLA")))
+    print(SimpleMovingAverages(df=gd.getData("TSLA")))
+    # SimpleMovingAveragesCrossovers(df=SimpleMovingAverages(df=gd.getData("TSLA")))
 
