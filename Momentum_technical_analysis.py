@@ -34,7 +34,7 @@ def RSI(df):
     rsi = talib.RSI(data, timeperiod=14)
     df["RSI"] = pd.Series(rsi, index=df.index)
 
-    print(df)
+    return df
 
 def StochRSI(df):
     data = df["Adj Close"]
