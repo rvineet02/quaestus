@@ -17,8 +17,9 @@ pd.options.mode.chained_assignment = None  # default='warn'
 def ADX(df):
     data = df[["High", "Low", "Adj Close"]]
     adx = talib.ADX(data["High"], data["Low"], data["Adj Close"], timeperiod=14)
-    print(adx)
+    df["ADX"] = pd.Series(adx, index=df.index)
 
+    return df
 
 def MACD(df):
     data = df["Adj Close"]
@@ -31,8 +32,9 @@ def MACD(df):
 def ATR(df):
     data = df[["High", "Low", "Adj Close"]] 
     atr = talib.ATR(data["High"], data["Low"], data["Adj Close"], timeperiod=14)
-    print(atr)
+    df["ATR"] = pd.Series(atr, index=df.index)
 
+    return df
 
 if __name__ == "__main__":
     ATR(df=gd.getData("TSLA"))
